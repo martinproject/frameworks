@@ -1,12 +1,20 @@
-- title: "Front-end Frameworks"
+- section: "Frameworks Frontend"
   id: "frontend"
-  items:
+  color: "#3e95cd"
+  tools:
     - name: "React"
-      satisfaction: 80
-      usage: 95
+      score: 85
     - name: "Vue"
-      satisfaction: 70
-      usage: 50
+      score: 72
     - name: "Svelte"
-      satisfaction: 90
-      usage: 20
+      score: 91
+- section: "Lenguajes"
+  id: "languages"
+  color: "#ff3e00"
+  tools:
+    - name: "TypeScript"
+      score: 95
+    - name: "JavaScript"
+      score: 88
+    - name: "Rust"
+      score: 60
