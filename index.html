@@ -1,0 +1,47 @@
+---
+layout: default
+---
+
+<style>
+  body { background: #1a1a1a; color: #eee; font-family: sans-serif; }
+  .chart-container { 
+    background: #252525; 
+    margin: 20px 0; 
+    padding: 20px; 
+    border-radius: 10px; 
+    border: 1px solid #333;
+  }
+  h2 { color: #00d1b2; border-bottom: 1px solid #333; padding-bottom: 10px; }
+</style>
+
+<h1>{{ site.title }} - Resultados 2027</h1>
+
+{% for category in site.data.results %}
+<div class="chart-container">
+  <h2>{{ category.section }}</h2>
+  <canvas id="chart-{{ category.id }}"></canvas>
+</div>
+{% endfor %}
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  {% for category in site.data.results %}
+    new Chart(document.getElementById('chart-{{ category.id }}'), {
+      type: 'bar',
+      data: {
+        labels: [{% for tool in category.tools %}"{{ tool.name }}",{% endfor %}],
+        datasets: [{
+          label: 'Nivel de Satisfacción %',
+          data: [{% for tool in category.tools %}{{ tool.score }},{% endfor %}],
+          backgroundColor: '{{ category.color }}'
+        }]
+      },
+      options: {
+        indexAxis: 'y', // Gráfico horizontal estilo State of JS
+        scales: { x: { beginAtZero: true, max: 100 } }
+      }
+    });
+  {% endfor %}
+});
+</script>
