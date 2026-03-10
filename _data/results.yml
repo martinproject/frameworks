@@ -1,0 +1,12 @@
+- title: "Front-end Frameworks"
+  id: "frontend"
+  items:
+    - name: "React"
+      satisfaction: 80
+      usage: 95
+    - name: "Vue"
+      satisfaction: 70
+      usage: 50
+    - name: "Svelte"
+      satisfaction: 90
+      usage: 20
